@@ -4,14 +4,7 @@
     margin-top: 8px;
   }
 
-  .formalert {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 2rem;
-    box-shadow: 0 16px 10px -5px rgba(0, 0, 0, 0.5);
-    z-index: 1;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .sucessalert {
     background: #d5eddc;
     color: green;
   }
@@ -19,6 +12,20 @@
   .erroralert {
     background: #f8d9db;
     color: darkred;
+  }
+
+  .alert {
+    position: fixed;
+    top: 10%;
+    right: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.25rem;
+    padding: 2rem;
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease-in-out;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
   }
 </style>
 <div class="bg-light">
@@ -40,12 +47,15 @@
 
   <!-- Row  -->
   <div class="container bg-light col-md-6">
-    <div class="col-md-8 formalert" *ngIf="formSubmissionMessage != ''">
+    <div
+      class="col-md-4 sucessalert alert"
+      *ngIf="!isError && formSubmissionMessage != ''"
+    >
       {{ formSubmissionMessage }}
     </div>
 
     <div
-      class="col-md-8 formalert erroralert"
+      class="col-md-4 alert erroralert"
       *ngIf="isError && formSubmissionMessage != ''"
     >
       {{ formSubmissionMessage }}

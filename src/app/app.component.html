@@ -6,27 +6,59 @@
           <a href="#" class="btn btn-danger-gradiant font-14"
             ><i class="fa fa-bars mr-2" aria-hidden="true"></i>Menu
           </a>
-          <ul style="list-style-type: none" class="dropdown">
-            <li class="mobile-li" [routerLinkActive]="['active']">
-              <a (click)="goto('home-page')"> Home </a>
+          <ul
+            *ngIf="isDropdownOpen"
+            style="list-style-type: none"
+            class="dropdown"
+          >
+            <li
+              (click)="goto('home-page')"
+              class="mobile-li"
+              [routerLinkActive]="['active']"
+            >
+              <a> Home </a>
             </li>
-            <li class="mobile-li" [routerLinkActive]="['active']">
-              <a (click)="goto('about-page')">About</a>
+            <li
+              (click)="goto('about-page')"
+              class="mobile-li"
+              [routerLinkActive]="['active']"
+            >
+              <a>About</a>
             </li>
-            <li class="mobile-li" [routerLinkActive]="['active']">
-              <a (click)="goto('skill-page')">Skills</a>
+            <li
+              (click)="goto('skill-page')"
+              class="mobile-li"
+              [routerLinkActive]="['active']"
+            >
+              <a>Skills</a>
             </li>
-            <li class="mobile-li" [routerLinkActive]="['active']">
-              <a (click)="goto('exp-page')">Experience</a>
+            <li
+              (click)="goto('exp-page')"
+              class="mobile-li"
+              [routerLinkActive]="['active']"
+            >
+              <a>Experience</a>
             </li>
-            <li class="mobile-li" [routerLinkActive]="['active']">
-              <a (click)="goto('edu-page')">Education</a>
+            <li
+              (click)="goto('edu-page')"
+              class="mobile-li"
+              [routerLinkActive]="['active']"
+            >
+              <a>Education</a>
             </li>
-            <li class="mobile-li" [routerLinkActive]="['active']">
-              <a (click)="goto('blog-page')">Blogs</a>
+            <li
+              (click)="goto('blog-page')"
+              class="mobile-li"
+              [routerLinkActive]="['active']"
+            >
+              <a>Blogs</a>
             </li>
-            <li class="mobile-li" [routerLinkActive]="['active']">
-              <a (click)="goto('contact-page')">Contact Me </a>
+            <li
+              (click)="goto('contact-page')"
+              class="mobile-li"
+              [routerLinkActive]="['active']"
+            >
+              <a>Contact Me </a>
             </li>
           </ul>
         </li>

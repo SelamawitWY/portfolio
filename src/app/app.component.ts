@@ -12,6 +12,7 @@ export class AppComponent {
   showDropdown = false;
   title = 'Portfolio';
   imagePath='../assets/images/innerpage/prof-pic.png';
+  isDropdownOpen = true;
 
   constructor(private router: Router) {}
 
@@ -21,6 +22,9 @@ export class AppComponent {
       fragment: sectionId
     };
     this.router.navigate([], navigationExtras);
+
+    this.isDropdownOpen = false;
+    setTimeout(() => this.isDropdownOpen = true, 1000)
   }
 
 }

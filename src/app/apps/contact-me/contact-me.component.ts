@@ -32,6 +32,7 @@ export class ContactMeComponent implements OnInit {
 
   send(): void {
     this.formSubmitted = true;
+    this.isError = false;
 
     if (this.form.invalid) {
       this.formSubmissionMessage = 'Please enter a valid information';
@@ -66,7 +67,7 @@ export class ContactMeComponent implements OnInit {
   }
 
   resetMessage() : void {
-    setTimeout(() => this.formSubmissionMessage = '', 5000)
+    setTimeout(() => this.formSubmissionMessage = '', 1000)
   }
 
 }
