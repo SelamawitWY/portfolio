@@ -1,0 +1,28 @@
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+
+# Dependencies
+/node_modules
+
+# Environment variables
+.env
+
+# Logs and databases
+*.log
+*.sqlite
+
+# IDE and editor files
+.idea
+.vscode
+*.swp
+*.swo
+
+# Dependency lock files
+package-lock.json
+yarn.lock
+
+# e2e folder
+e2e/

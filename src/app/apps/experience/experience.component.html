@@ -1,0 +1,147 @@
+<div
+  class="banner-innerpage"
+  style="background-image: url(assets/images/landingpage/banner-bg2.jpg)"
+>
+  <div class="container">
+    <!-- Row  -->
+    <div class="row justify-content-center">
+      <!-- Column -->
+      <div class="col-lg-9 col-md-6 no-trans align-self-center text-center">
+        <h1 class="title">Experience</h1>
+      </div>
+      <!-- Column -->
+    </div>
+  </div>
+</div>
+
+<div class="bg-light feature1" style="padding-top: 40px">
+  <div class="container" style="max-width: 1340px !important">
+    <div class="row m-t-10">
+      <!-- Column -->
+      <div
+        class="col-md-4 wrap-feature1-box"
+        style=""
+        *ngFor="let relay of relayOn"
+      >
+        <div
+          class="card card-shadow"
+          data-aos="fade-right"
+          data-aos-duration="1200"
+        >
+          <div class="card-body p-40 text-center">
+            {{ relay.fieldText }}
+            <div class="icon-space display-5">
+              <i [class]="relay.icon"></i>
+              <img
+                [src]="relay.icon"
+                style="width: 120px; border-radius: 60px; height: 116px"
+                alt=""
+              />
+            </div>
+            <h5 class="font-medium">{{ relay.field }}</h5>
+            <p class="m-t-20">
+              {{ relay.year }} <br />
+              {{ relay.location }}
+            </p>
+            <ng-container
+              [ngTemplateOutlet]="
+                relay.id == '1'
+                  ? lytxDesc
+                  : relay.id == '2'
+                  ? excelDesc
+                  : appositDesc
+              "
+            >
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-light feature1">
+  <div class="container" style="max-width: 1340px !important">
+    <!-- Row  -->
+    <div class="row justify-content-center">
+      <div class="col-md-7 text-center no-trans">
+        <h2 class="title" style="text-transform: uppercase">Projects</h2>
+      </div>
+    </div>
+    <div class="row m-t-40">
+      <!-- Column -->
+      <div
+        class="col-md-3 wrap-feature1-box"
+        style=""
+        *ngFor="let project of projects"
+      >
+        <div
+          class="card card-shadow badge-secondary"
+          data-aos="fade-right"
+          data-aos-duration="1200"
+        >
+          <div class="card-body p-40 text-center" style="height: 440px">
+            <div class="icon-space display-5">
+              <i [class]="project.icon"></i>
+            </div>
+            <h5 class="font-medium">{{ project.field }}</h5>
+            <p class="m-t-20">{{ project.fieldText }}</p>
+            <h6 style="font-size: 12px; color: white">
+              <i>{{ project.tech }}</i>
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #lytxDesc>
+  <p class="m-t-20" style="text-align: left">
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Rapidly prototype,
+    deploy, and test new solutions within our market <br />
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Build out scalable
+    solutions to manage events and real-time status of close to a million
+    independent devices <br />
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Own and operate
+    scalable production services and user interface <br />
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Full stack engineering
+    and development <br />
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Develop and test new
+    solutions that enhance our position within our markets. <br /><br />
+  </p>
+</ng-template>
+
+<ng-template #excelDesc>
+  <p class="m-t-20" style="text-align: left">
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Designed database and
+    entities to implementing into backend.<br />
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Designed RESTful APIs
+    for system modules and Micro services<br />
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Decouple Notification
+    service using message queue and enhance delivery rate by 50% and bug report
+    rate by 30% <br />
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Streamlined
+    integration of software components with 3rd-party programs such as SendGrid
+    API. <br />
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Built responsive UI
+    according to Figma UI design.
+  </p>
+</ng-template>
+
+<ng-template #appositDesc>
+  <p class="m-t-20" style="text-align: left">
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Developed backend with
+    Spring Boot and integrated Spring Security.<br />
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Established Spring
+    Dependency Injection (IOC).<br />
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Implemented complex
+    stored procedures for report generation.<br />
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Optimized response
+    time of critical reports by 65% using indexing <br />
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Designed responsive UI
+    components for reporting module.<br />
+    <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Developed client
+    facing application using Angular. <br />
+  </p>
+</ng-template>

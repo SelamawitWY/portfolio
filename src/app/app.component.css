@@ -1,0 +1,83 @@
+.topbar {
+  position: fixed;
+  top: 0; /* Adjust top position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2d302f;
+}
+.nav-item {
+  cursor: pointer;
+}
+
+.link {
+  border-radius: 2.6rem;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.3rem;
+  height: 2.6rem;
+  line-height: 2.6rem;
+  margin: 0 5px 10px;
+  position: relative;
+  text-align: center;
+  transition: 0.2s ease-in;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 2.6rem;
+}
+
+.img-responsive {
+  width: 95%;
+  height: 80%;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .mobile-menu {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+  }
+}
+
+@media only screen and (min-width: 701px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+  .navbar-nav {
+    flex-direction: row !important;
+  }
+}
+
+ul li ul {
+  background: #2d302f;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 10rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 16px;
+  right: 0;
+  padding: unset;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+}
+
+li:hover {
+  background: #f4f8fa;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.mobile-li {
+  padding: 0.5rem;
+  padding-left: 2rem;
+}

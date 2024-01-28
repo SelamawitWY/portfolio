@@ -1,0 +1,194 @@
+<style>
+  .validation-error {
+    color: red;
+    margin-top: 8px;
+  }
+
+  .formalert {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    box-shadow: 0 16px 10px -5px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #d5eddc;
+    color: green;
+  }
+
+  .erroralert {
+    background: #f8d9db;
+    color: darkred;
+  }
+</style>
+<div class="bg-light">
+  <div
+    class="banner-innerpage"
+    style="background-image: url(assets/images/landingpage/banner-bg2.jpg)"
+  >
+    <div class="container">
+      <!-- Row  -->
+      <div class="row justify-content-center">
+        <!-- Column -->
+        <div class="col-lg-9 col-md-6 align-self-center text-center">
+          <h1 class="title">CONTACT ME</h1>
+        </div>
+        <!-- Column -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Row  -->
+  <div class="container bg-light col-md-6">
+    <div class="col-md-8 formalert" *ngIf="formSubmissionMessage != ''">
+      {{ formSubmissionMessage }}
+    </div>
+
+    <div
+      class="col-md-8 formalert erroralert"
+      *ngIf="isError && formSubmissionMessage != ''"
+    >
+      {{ formSubmissionMessage }}
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-8 no-trans card card-shadow m-t-40">
+        <div class="mini-spacer">
+          <section class="text-gray-600 body-font relative">
+            <div class="container px-5 mx-auto flex flex-wrap">
+              <form
+                [formGroup]="form"
+                (ngSubmit)="send()"
+                class="bg-white flex flex-col w-full mt-8"
+              >
+                <div class="relative grid mb-4">
+                  <label for="name" class="leading-7 text-sm text-gray-600"
+                    >Name</label
+                  >
+                  <input
+                    formControlName="name"
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="w-full bg-white rounded border border-gray-300 text-base outline-none text-gray-700 py-2 px-3 leading-8"
+                  />
+
+                  <span
+                    class="validation-error"
+                    *ngIf="
+                      (formSubmitted || form.controls.name.touched) &&
+                      form.controls.name.errors?.required
+                    "
+                    >Name is required</span
+                  >
+                </div>
+                <div class="relative grid mb-4">
+                  <label for="email" class="leading-7 text-sm text-gray-600"
+                    >Email</label
+                  >
+                  <input
+                    formControlName="email"
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="w-full bg-white rounded border border-gray-300 text-base outline-none text-gray-700 py-2 px-3 leading-8"
+                  />
+                  <span
+                    class="validation-error"
+                    *ngIf="
+                      (formSubmitted || form.controls.email.touched) &&
+                      form.controls.email.errors?.required
+                    "
+                    >Email is required</span
+                  >
+                  <span
+                    class="validation-error"
+                    *ngIf="
+                      ((formSubmitted || form.controls.email.touched) &&
+                        form.controls.email.errors?.email) ||
+                      form.controls.email.errors?.pattern
+                    "
+                    >Please enter a correct email id</span
+                  >
+                </div>
+                <div class="relative grid mb-4">
+                  <label for="phone" class="leading-7 text-sm text-gray-600"
+                    >Phone (Optional)</label
+                  >
+                  <input
+                    formControlName="phone"
+                    type="phone"
+                    id="phone"
+                    name="phone"
+                    class="w-full bg-white rounded border border-gray-300 text-base outline-none text-gray-700 py-2 px-3 leading-8"
+                  />
+                  <span
+                    class="validation-error"
+                    *ngIf="
+                      (formSubmitted || form.controls.phone.touched) &&
+                      form.controls.phone.errors?.pattern
+                    "
+                    >Please enter a correct phone number</span
+                  >
+                </div>
+                <div class="relative grid mb-4">
+                  <label for="subject" class="leading-7 text-sm text-gray-600"
+                    >Subject</label
+                  >
+                  <input
+                    formControlName="subject"
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    class="w-full bg-white rounded border border-gray-300 text-base outline-none text-gray-700 py-2 px-3 leading-8"
+                  />
+                  <span
+                    class="validation-error"
+                    *ngIf="
+                      (formSubmitted || form.controls.subject.touched) &&
+                      form.controls.subject.errors?.required
+                    "
+                    >Subject is required</span
+                  >
+                </div>
+                <div class="relative grid mb-4">
+                  <label for="message" class="leading-7 text-sm text-gray-600"
+                    >Message</label
+                  >
+                  <textarea
+                    style="height: 100px"
+                    formControlName="message"
+                    id="message"
+                    name="message"
+                    class="w-full bg-white rounded border border-gray-300 h-32 text-base outline-none text-gray-700 py-2 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                  ></textarea>
+                  <span
+                    class="validation-error"
+                    *ngIf="
+                      (formSubmitted || form.controls.message.touched) &&
+                      form.controls.message.errors?.required
+                    "
+                    >Massage is required</span
+                  >
+                </div>
+
+                <button
+                  type="submit"
+                  class="mt-3 w-full btn btn-danger-gradiant btn-rounded"
+                  [disabled]="isDisabled"
+                  [ngStyle]="
+                    !isDisabled
+                      ? { cursor: 'pointer' }
+                      : { cursor: 'not-allowed' }
+                  "
+                >
+                  <i class="fa fa-paper-plane mr-2"></i> Send Message
+                </button>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
