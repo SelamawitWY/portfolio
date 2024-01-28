@@ -53,7 +53,9 @@
   }
 }
 
-ul li ul {
+
+
+ ul li ul {
   background: #2d302f;
   visibility: hidden;
   opacity: 0;
@@ -71,7 +73,7 @@ ul li ul:hover {
   opacity: 1;
 }
 
-li:hover {
+ .mobile-menu li:hover {
   background: #f4f8fa;
   cursor: pointer;
   border-radius: 6px;
@@ -81,3 +83,4 @@ li:hover {
   padding: 0.5rem;
   padding-left: 2rem;
 }
+
