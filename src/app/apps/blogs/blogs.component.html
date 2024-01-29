@@ -16,8 +16,8 @@
   </div>
   <!-- Row  -->
   <div class="row justify-content-center">
-    <div class="col-md-8 no-trans card card-shadow m-t-40">
-      <div style="margin: 70px">
+    <div class="container no-trans card card-shadow m-t-40">
+      <div class="border-bottom m-5" *ngFor="let blogDetail of blogDetails">
         <div
           class="d-flex align-items-center text-uppercase font-13 font-medium"
         >
@@ -29,16 +29,38 @@
         <h2 class="title font-light">
           {{ blogDetail?.heading }}
         </h2>
-        <p class="m-t-30 m-b-30">
-          {{ blogDetail?.subHeading }}
-        </p>
-        <p class="m-t-30 m-b-30">
-          {{ blogDetail?.blogDetail }}
-        </p>
 
-        <div class="m-t-30">
+        <div class="row wrap-feature-22 justify-content-center">
+          <!-- Column -->
+          <div
+            class="mt-5"
+            data-aos="flip-up"
+            data-aos-duration="1200"
+            style="margin-left: 64px"
+          >
+            <img
+              [src]="blogDetail.image"
+              style="border-radius: 30px"
+              class="img-responsive"
+              alt=""
+            />
+          </div>
+          <div class="no-trans">
+            <p class="m-t-30 m-b-30">
+              {{ blogDetail?.blogDetail }}
+            </p>
+          </div>
+        </div>
+
+        <div class="m-t-30 m-b-30">
           <button type="button" class="btn btn-danger-gradiant btn-rounded">
-            <i class="fa fa-info-circle mr-2"></i> Read more
+            <a
+              href="{{ blogDetail?.blogLink }}"
+              target="_blank"
+              style="color: unset"
+            >
+              <i class="fa fa-info-circle mr-2"></i> Read more</a
+            >
           </button>
         </div>
       </div>
